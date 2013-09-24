@@ -26,7 +26,8 @@ if [ -f $BUILD_DIR/JJG/Makefile.PL ]; then
   echo "-----> Installing dependencies"
   VENDOR_DEPS="$BUILD_DIR/vendor/perl-deps"
   CACHE_DEPS="$CACHE_DIR/$PERL_VERSION/perl-deps"
-  CPANM="perl -I $BUILD_DIR/local-lib -S $(which cpanm) -l $CACHE_DEPS"
+  eval $(perl -I $BUILD_DIR/local-lib -Mlocal::lib=$BUILD_DIR/local-lib)
+  CPANM="perl -S $(which cpanm) -l $CACHE_DEPS"
 
   mkdir -p "$CACHE_DIR"
   $CPANM --verbose --notest --installdeps "$BUILD_DIR/JJG" 2>&1 | indent
