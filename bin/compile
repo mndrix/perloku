@@ -30,6 +30,7 @@ if [ -f $BUILD_DIR/JJG/Makefile.PL ]; then
   eval $(perl -Mlocal::lib=$CACHE_DEPS)
   CPANM="perl -S $BUILD_DIR/local-lib/bin/cpanm"
 
+  rm -rf "$CACHE_DIR"
   mkdir -p "$CACHE_DIR"
   $CPANM --verbose --notest --installdeps "$BUILD_DIR/JJG" 2>&1 | indent
 
