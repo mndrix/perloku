@@ -27,7 +27,6 @@ if [ -f $BUILD_DIR/JJG/Makefile.PL ]; then
   VENDOR_DEPS="$BUILD_DIR/vendor/perl-deps"
   CACHE_DEPS="$CACHE_DIR/$PERL_VERSION/perl-deps"
   eval $(perl -I $BUILD_DIR/local-lib/lib/perl5 -Mlocal::lib=$BUILD_DIR/local-lib)
-  eval $(perl -Mlocal::lib=$VENDOR_DEPS)
   eval $(perl -Mlocal::lib=$CACHE_DEPS)
   CPANM="perl -S $(which cpanm)"
 
