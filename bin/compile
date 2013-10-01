@@ -28,7 +28,7 @@ if [ -f $BUILD_DIR/JJG/Makefile.PL ]; then
   CACHE_DEPS="$CACHE_DIR/$PERL_VERSION/perl-deps"
   eval $(perl -I $BUILD_DIR/local-lib/lib/perl5 -Mlocal::lib=$BUILD_DIR/local-lib)
   eval $(perl -Mlocal::lib=$CACHE_DEPS)
-  CPANM="perl -S $(which cpanm)"
+  CPANM="perl -S $BUILD_DIR/local-lib/bin/cpanm"
 
   mkdir -p "$CACHE_DIR"
   $CPANM --verbose --notest --installdeps "$BUILD_DIR/JJG" 2>&1 | indent
