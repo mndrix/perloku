@@ -16,6 +16,10 @@ echo "-----> Vendoring Perl"
 
 mkdir -p $VENDORED_PERL  && curl $PERL_PACKAGE -s -o -  | tar xzf - -C $VENDORED_PERL
 
+echo "-----> Vendoring gsutil"
+VENDORED_GSUTIL="$BUILD_DIR/vendor/gsutil"
+mkdir -p $VENDORED_GSUTIL && curl 'http://storage.googleapis.com/pub/gsutil.tar.gz' -s -o - | tar xzf - -C $VENDORED_GSUTIL
+
 # Set up so we can use Perl right away
 export PATH="$VENDORED_PERL/bin:$PATH"
 export PERL5LIB="$VENDORED_PERL/lib/$PERL_VERSION:$VENDORED_PERL/lib/site_perl/$PERL_VERSION"
