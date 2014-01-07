@@ -37,10 +37,12 @@ if [ -f $BUILD_DIR/JJG/Makefile.PL ]; then
   $CPANM --verbose --notest --installdeps "$BUILD_DIR/JJG" 2>&1 | indent
 
   cp -R "$CACHE_DEPS" "$VENDOR_DEPS"
+  echo "Dependencies installed" | indent
 
   # update GeoIP database
+  echo "-----> Updating GeoIP database"
   perl $BUILD_DIR/JJG/script/cron/download-geoip.pl
+  echo "GeoIP database updated" | indent
 
-  echo "Dependencies installed" | indent
 fi
 
