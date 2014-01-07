@@ -45,7 +45,7 @@ if [ -f $BUILD_DIR/JJG/Makefile.PL ]; then
   echo "GeoIP database updated" | indent
 
   echo "-----> Building monoliths"
-  perl $BUILD_DIR/JJG/script/build.pl
+  env BUILD_DIR=$BUILD_DIR perl $BUILD_DIR/JJG/script/build.pl
   echo "Monoliths built" | indent
 fi
 
